@@ -30,19 +30,41 @@ p {
   gap: 10px;
 }
 
+/* Zutaten-Buttons – iPhone-tauglich */
 #ingredients button {
-  background: var(--card-soft);
-  color: var(--text-main);
-  border: none;
+  min-height: 60px;
+  padding: 16px 20px;
+  margin: 10px 8px;
+  font-size: 18px;
   border-radius: 18px;
-  padding: 12px 16px;
-  font-size: 14px;
-  letter-spacing: 0.2px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+  line-height: 1.2;
 }
-#ingredients button[style*="388e3c"] {
-  background: linear-gradient(135deg, #2e7d32, #256628);
-  box-shadow: 0 6px 16px rgba(46,125,50,0.35);
+
+/* Allgemeiner Button (z. B. "Zeig mir meine Jause") */
+button {
+  min-height: 64px;
+  padding: 18px 24px;
+  font-size: 18px;
+  border-radius: 20px;
+}
+/* ===== iPHONE / MOBILE – EXTRA GROẞ ===== */
+@media (max-width: 768px) {
+
+  #ingredients button {
+    min-height: 72px;        /* wirklich groß */
+    padding: 20px 24px;
+    font-size: 20px;         /* sehr gut lesbar */
+    border-radius: 22px;
+    margin: 12px 8px;
+  }
+
+  #showRecipes {
+    min-height: 76px;
+    padding: 22px 28px;
+    font-size: 20px;
+    border-radius: 24px;
+  }
+
 }
 #showRecipes {
   margin-top: 22px;
