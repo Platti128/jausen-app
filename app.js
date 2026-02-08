@@ -1,24 +1,59 @@
 document.addEventListener("DOMContentLoaded", () => {
-const ingredients = [
-  "Ei",
-  "Topfen",
-  "Butter",
-  "Philadelphia",
-  "Schnittlauch",
-  "Gurke",
-  "Erdäpfel",
-  "Kichererbsen"
-];
-let selected = JSON.parse(localStorage.getItem("selectedIngredients")) || [];
-function toggleIngredient(name) {
-  if (selected.includes(name)) {
-    selected = selected.filter(i => i !== name);
-  } else {
-    selected.push(name);
+
+  // ===== ZUTATEN =====
+  const ingredients = [
+    "Ei",
+    "Topfen",
+    "Butter",
+    "Philadelphia",
+    "Schnittlauch",
+    "Gurke",
+    "Erdäpfel",
+    "Kichererbsen"
+  ];
+
+  let selected = JSON.parse(localStorage.getItem("selectedIngredients")) || [];
+
+  function renderIngredients() {
+    const container = document.getElementById("ingredients");
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    ingredients.forEach(name => {
+      const btn = document.createElement("button");
+      btn.textContent = name;
+
+      btn.className = selected.includes(name)
+        ? "ingredient selected"
+        : "ingredient";
+
+      btn.onclick = () => toggleIngredient(name);
+
+      container.appendChild(btn);
+    });
   }
-  localStorage.setItem("selectedIngredients", JSON.stringify(selected));
+
+  function toggleIngredient(name) {
+    if (selected.includes(name)) {
+      selected = selected.filter(i => i !== name);
+    } else {
+      selected.push(name);
+    }
+
+    localStorage.setItem(
+      "selectedIngredients",
+      JSON.stringify(selected)
+    );
+
+    renderIngredients();
+  }
+
+  // ===== START =====
   renderIngredients();
-}
+
+});
+
 
   const container = document.getElementById("ingredients");
 
@@ -73,4 +108,3 @@ document.getElementById("showRecipes").onclick = () => {
 
   document.body.appendChild(results);
 };
-});
