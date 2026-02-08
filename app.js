@@ -23,7 +23,7 @@ ingredients.forEach(name => {
 
   const iconSpan = document.createElement("span");
   iconSpan.className = "ingredient-icon";
-iconSpan.textContent = "🟢";
+  iconSpan.textContent = "🟢"; // Test-Icon
 
   const textSpan = document.createElement("span");
   textSpan.className = "ingredient-text";
