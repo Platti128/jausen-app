@@ -21,6 +21,10 @@
   <div id="ingredients"></div>
   <button id="showRecipes">Zeig mir meine Jause</button>
 </div>
-<script src="app.js?v=11"></script>
+<script>
+  const script = document.createElement("script");
+  script.src = "app.js?v=" + Date.now();
+  document.body.appendChild(script);
+</script>
 </body>
 </html>
