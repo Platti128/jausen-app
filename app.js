@@ -242,6 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
     satiety: 2
   }
+  
 ];
 
 
