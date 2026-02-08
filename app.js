@@ -168,6 +168,10 @@ const recipes = [
 
 // ===== BUTTON =====
 document.getElementById("showRecipes").onclick = () => {
+  const selection = document.getElementById("selection");
+if (selection) {
+  selection.style.display = "none";
+}
   const old = document.getElementById("results");
   if (old) old.remove();
 
@@ -243,7 +247,7 @@ function openRecipeDetail(recipe) {
 
     <div class="detail-image">
       <img src="${recipe.image}" alt="${recipe.name}" />
-      <button class="close-btn">✕</button>
+      <div class="close-btn">✕</div>
     </div>
 
     <div class="detail-header">

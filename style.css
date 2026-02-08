@@ -151,8 +151,8 @@ button {
   margin-bottom: 8px;
 }
 
-/* ===== CLOSE BUTTON – iOS-SICHER, KEIN OVAL ===== */
-.detail-image .close-btn {
+/* ===== CLOSE BUTTON – FINAL, KEIN iOS OVAL ===== */
+.close-btn {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -160,24 +160,24 @@ button {
   width: 44px;
   height: 44px;
 
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
+
+  border-radius: 50%;
+  background: rgba(0,0,0,0.75);
 
   color: #fff;
   font-size: 22px;
   line-height: 1;
 
   cursor: pointer;
-  z-index: 10;
+  z-index: 999;
 
+  user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
+
 
 /* DER ECHTE KREIS */
 .detail-image .close-btn::before {
