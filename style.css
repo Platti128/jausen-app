@@ -151,7 +151,7 @@ button {
   margin-bottom: 8px;
 }
 
-/* ===== CLOSE-BUTTON: OHNE HINTERGRUND ===== */
+/* ===== CLOSE BUTTON – iOS-SICHER, KEIN OVAL ===== */
 .detail-image .close-btn {
   position: absolute;
   top: 12px;
@@ -160,28 +160,37 @@ button {
   width: 44px;
   height: 44px;
 
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: transparent;
   color: #fff;
-
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1;
-
-  border: none;
-  padding: 0;
 
   cursor: pointer;
   z-index: 10;
+
+  -webkit-tap-highlight-color: transparent;
 }
-.detail-content {
-  position: relative;
+
+/* DER ECHTE KREIS */
+.detail-image .close-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+  background: rgba(0,0,0,0.7);
+
+  z-index: -1;
 }
-.recipe-card {
-  position: relative;
-}
+
 
 .fav-badge {
   position: absolute;
