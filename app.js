@@ -20,25 +20,27 @@ let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
 ingredients.forEach(name => {
   const btn = document.createElement("button");
-  const icon = ingredientIcons[ingredient] || "";
-button.innerHTML = `
-  <span class="ingredient-icon">${icon}</span>
-  <span class="ingredient-text">${ingredient}</span>
-`;
 
-  btn.style.background = selected.includes(name) ? "#2e7d32" : "#2a2a2a";
+  const iconSpan = document.createElement("span");
+  iconSpan.className = "ingredient-icon";
+  iconSpan.textContent = ingredientIcons[name] || "";
 
-  btn.onclick = () => {
-    selected.includes(name)
-      ? selected = selected.filter(i => i !== name)
-      : selected.push(name);
+  const textSpan = document.createElement("span");
+  textSpan.className = "ingredient-text";
+  textSpan.textContent = name;
 
-    localStorage.setItem("selectedIngredients", JSON.stringify(selected));
-    location.reload();
-  };
+  btn.appendChild(iconSpan);
+  btn.appendChild(textSpan);
 
-  container.appendChild(btn);
+  btn.onclick = () => toggleIngredient(name);
+
+  btn.style.background = selected.includes(name)
+    ? "#2e7d32"
+    : "#2a2a2a";
+
+  ingredientsContainer.appendChild(btn);
 });
+
 
 // ===== REZEPTE =====
 const recipes = [
