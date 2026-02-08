@@ -1,9 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
 // ===== ZUTATEN =====
-const ingredients = [
-  "Ei","Topfen","Hüttenkäse","Käse","Avocado","Hummus",
-  "Gurke","Tomate","Paprika","Karotte","Frühlingszwiebeln","Rote Zwiebeln"
-];
+const ingredientIcons = {
+  "Ei": "🥚",
+  "Topfen": "🧀",
+  "Frühlingszwiebeln": "🧅",
+  "Rote Zwiebeln": "🧅",
+  "Tomate": "🍅",
+  "Gurke": "🥒",
+  "Käse": "🧀",
+  "Brot": "🍞",
+  "Avocado": "🥑",
+  "Joghurt": "🥣"
+};
+
 
 const container = document.getElementById("ingredients");
 let selected = JSON.parse(localStorage.getItem("selectedIngredients")) || [];
@@ -11,7 +20,12 @@ let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
 ingredients.forEach(name => {
   const btn = document.createElement("button");
-  btn.textContent = name;
+  const icon = ingredientIcons[ingredient] || "";
+button.innerHTML = `
+  <span class="ingredient-icon">${icon}</span>
+  <span class="ingredient-text">${ingredient}</span>
+`;
+
   btn.style.background = selected.includes(name) ? "#2e7d32" : "#2a2a2a";
 
   btn.onclick = () => {
