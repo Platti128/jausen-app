@@ -299,3 +299,9 @@ button {
   object-fit: cover;
   border-radius: 0;
 }
+/* Favoriten-Icon NUR in Rezepten erlauben */
+#ingredients .fav-inline,
+#ingredients .fav-badge {
+  display: none !important;
+}
+

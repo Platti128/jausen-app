@@ -1,0 +1,30 @@
+[
+  {
+    "id": "eierbrot",
+    "name": "Eierbrot – der Klassiker",
+    "ingredients": ["Ei"],
+    "time": 5,
+    "satiety": 3
+  },
+  {
+    "id": "topfenbrot",
+    "name": "Topfen-Kraftbrot",
+    "ingredients": ["Topfen"],
+    "time": 2,
+    "satiety": 3
+  },
+  {
+    "id": "huettenkaese",
+    "name": "Hüttenkäse pur",
+    "ingredients": ["Hüttenkäse"],
+    "time": 2,
+    "satiety": 2
+  },
+  {
+    "id": "kaesebrot",
+    "name": "Käsebrot",
+    "ingredients": ["Käse"],
+    "time": 2,
+    "satiety": 3
+  }
+]
