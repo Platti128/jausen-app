@@ -28,3 +28,19 @@ button {
   background: #555;
   color: white;
 }
+/* Zutaten-Buttons */
+.ingredient-btn {
+  background: #e0e0e0;
+  color: #1e3a8a;
+  border: none;
+  border-radius: 20px;
+  padding: 14px;
+  margin: 6px;
+  font-size: 16px;
+}
+
+/* aktiv ausgewählt */
+.ingredient-btn.active {
+  background: #2e7d32;
+  color: white;
+}

@@ -1,44 +1,52 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  const ingredients = ["Ei", "Butter", "Käse"];
-  const recipes = [
-    { name: "Eibrot", ingredients: ["Ei", "Butter"] },
-    { name: "Käsebrot", ingredients: ["Käse", "Butter"] }
+  const ingredients = [
+    "Ei",
+    "Topfen",
+    "Butter",
+    "Philadelphia",
+    "Schnittlauch",
+    "Gurke",
+    "Erdäpfel",
+    "Kichererbsen"
   ];
 
-  let selected = [];
-
-  const ingDiv = document.getElementById("ingredients");
-  const resultsDiv = document.getElementById("results");
+  const container = document.getElementById("ingredients");
+  let selected = JSON.parse(localStorage.getItem("selectedIngredients")) || [];
 
   function renderIngredients() {
-    ingDiv.innerHTML = "";
-    ingredients.forEach(i => {
+    container.innerHTML = "";
+
+    ingredients.forEach(name => {
       const btn = document.createElement("button");
-      btn.textContent = i;
-      btn.className = "ingredient" + (selected.includes(i) ? " selected" : "");
-      btn.onclick = () => toggle(i);
-      ingDiv.appendChild(btn);
+      btn.textContent = name;
+      btn.className = "ingredient-btn";
+
+      if (selected.includes(name)) {
+        btn.classList.add("active");
+      }
+
+      btn.onclick = () => {
+        toggleIngredient(name);
+      };
+
+      container.appendChild(btn);
     });
   }
 
-  function toggle(i) {
-    selected = selected.includes(i)
-      ? selected.filter(x => x !== i)
-      : [...selected, i];
+  function toggleIngredient(name) {
+    if (selected.includes(name)) {
+      selected = selected.filter(i => i !== name);
+    } else {
+      selected.push(name);
+    }
+
+    localStorage.setItem(
+      "selectedIngredients",
+      JSON.stringify(selected)
+    );
+
     renderIngredients();
   }
-
-  document.getElementById("showRecipes").onclick = () => {
-    resultsDiv.innerHTML = "";
-    recipes.forEach(r => {
-      if (r.ingredients.every(i => selected.includes(i))) {
-        const p = document.createElement("p");
-        p.textContent = r.name;
-        resultsDiv.appendChild(p);
-      }
-    });
-  };
 
   renderIngredients();
 });
