@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  alert("app.js läuft");
+
+// Startzustand erzwingen
+document.getElementById("selection").style.display = "block";
+document.getElementById("ingredients").style.display = "flex";
 
   /* ===== ZUTATEN ===== */
   const ingredientIcons = {
