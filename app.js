@@ -2,15 +2,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== ZUTATEN =====
   const ingredients = [
-    "Ei",
-    "Topfen",
-    "Butter",
-    "Philadelphia",
-    "Schnittlauch",
-    "Gurke",
-    "Erdäpfel",
-    "Kichererbsen"
-  ];
+  "Ei",
+  "Topfen",
+  "Butter",
+  "Philadelphia",
+  "Schnittlauch",
+  "Gurke",
+  "Erdäpfel",
+  "Kichererbsen",
+  "Käse",
+  "Olivenöl",
+  "Bohnen",
+  "Zwiebel",
+  "Linsen",
+  "Senf",
+  "Sauerrahm",
+  "Kren"
+];
+
 
   let selected = JSON.parse(localStorage.getItem("selectedIngredients")) || [];
 
