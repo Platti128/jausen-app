@@ -346,4 +346,7 @@ button {
 .recipe-card:active {
   transform: scale(0.97);
 }
+div {
+  outline: 2px solid red;
+}
 
