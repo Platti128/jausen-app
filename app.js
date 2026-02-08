@@ -241,8 +241,22 @@ document.addEventListener("DOMContentLoaded", () => {
       "Würzen"
     ],
     satiety: 2
-  }
-  
+  },
+  {
+  id: "ei_aufstrich_deftig",
+  name: "Deftiger Ei-Aufstrich",
+  ingredients: ["Ei", "Philadelphia"],
+  image: "https://images.unsplash.com/photo-1551024601-bec78aea704b",
+  steps: [
+    "Ei 8–9 Minuten hart kochen",
+    "Ei schälen und fein zerdrücken",
+    "Mit Frischkäse (Philadelphia) vermengen",
+    "1 TL Senf einrühren",
+    "Salz & Pfeffer nach Geschmack"
+  ],
+  satiety: 3
+},
+
 ];
 
 
