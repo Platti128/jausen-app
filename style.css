@@ -151,7 +151,7 @@ button {
   margin-bottom: 8px;
 }
 
-/* ===== CLOSE-BUTTON: PERFEKTER KREIS ===== */
+/* ===== CLOSE-BUTTON: OHNE HINTERGRUND ===== */
 .detail-image .close-btn {
   position: absolute;
   top: 12px;
@@ -159,34 +159,22 @@ button {
 
   width: 44px;
   height: 44px;
-  min-width: 44px;
-  min-height: 44px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 50%;
-  background-color: rgba(0,0,0,0.7);
-
+  background: transparent;
   color: #fff;
-  font-size: 22px;
+
+  font-size: 24px;
   line-height: 1;
 
-  padding: 0;
-  margin: 0;
-
   border: none;
-  outline: none;
-  box-shadow: none;
-  appearance: none;
-  -webkit-appearance: none;
+  padding: 0;
 
   cursor: pointer;
   z-index: 10;
-}
-
-
 }
 .detail-content {
   position: relative;
