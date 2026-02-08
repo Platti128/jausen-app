@@ -47,25 +47,28 @@ button {
   font-size: 18px;
   border-radius: 20px;
 }
-/* ===== iPHONE / MOBILE – EXTRA GROẞ ===== */
+/* ===== iPHONE – ZUTATEN KLEINER, REZEPTE DOMINANT ===== */
 @media (max-width: 768px) {
 
+  /* Zutaten-Auswahl */
   #ingredients button {
-    min-height: 72px;        /* wirklich groß */
-    padding: 20px 24px;
-    font-size: 20px;         /* sehr gut lesbar */
-    border-radius: 22px;
-    margin: 12px 8px;
+    min-height: 44px;        /* bewusst kleiner */
+    padding: 12px 16px;
+    font-size: 16px;
+    border-radius: 14px;
+    margin: 8px 6px;
   }
 
+  /* Hauptaktion */
   #showRecipes {
-    min-height: 76px;
-    padding: 22px 28px;
-    font-size: 20px;
-    border-radius: 24px;
+    min-height: 60px;
+    padding: 18px 24px;
+    font-size: 18px;
+    border-radius: 20px;
   }
 
 }
+
 #showRecipes {
   margin-top: 22px;
   width: 100%;
