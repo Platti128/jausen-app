@@ -320,4 +320,30 @@ button {
   flex: 1;
   text-align: left;
 }
+/* ===== REZEPT-KARTEN – MOBILE GROSS ===== */
+.recipe-card {
+  background: #1f1f1f;
+  color: #fff;
+
+  padding: 20px;
+  margin: 16px 12px;
+
+  border-radius: 16px;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  min-height: 80px;
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+}
+
+/* Touch-Feedback */
+.recipe-card:active {
+  transform: scale(0.97);
+}
 
