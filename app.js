@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let selected = JSON.parse(localStorage.getItem("selectedIngredients")) || [];
 
   function renderIngredients() {
+    document.getElementById("ingredients").style.display = "none";
+
     container.innerHTML = "";
 
     ingredients.forEach(name => {
