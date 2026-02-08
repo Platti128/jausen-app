@@ -245,3 +245,14 @@ button {
   border-radius: 18px;
   margin-bottom: 16px;
 }
+/* ===== iPHONE – ZUTATEN DEFINITIV KLEINER ===== */
+@media (max-width: 768px) {
+
+  #ingredients button {
+    min-height: 44px !important;
+    padding: 10px 14px !important;
+    font-size: 15px !important;
+    border-radius: 12px !important;
+  }
+
+}
