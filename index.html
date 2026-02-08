@@ -1,41 +1,30 @@
 <!DOCTYPE html>
 <html lang="de">
-<link rel="manifest" href="manifest.json">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Jause">
-
-<link rel="stylesheet" href="style.css?v=3">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Jausenbrote</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meine Jause</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
-<script>
-  const script = document.createElement("script");
-  script.src = "app.js?v=" + Date.now();
-  document.body.appendChild(script);
-</script>
-<script>
-  const script = document.createElement("script");
-  script.src = "app.js?v=" + Date.now();
-  document.body.appendChild(script);
-</script>
-
 <body>
 
-<h1>Jausenbrote für die Werkstatt</h1>
-<p>Wähle, was heute im Kühlschrank ist</p>
+  <header>
+    <h1>🥪 Meine Jause</h1>
+  </header>
 
-<div id="selection">
-  <div id="ingredients"></div>
-  <button id="showRecipes">Zeig mir meine Jause</button>
-</div>
-<script>
-  const script = document.createElement("script");
-  script.src = "app.js?v=" + Date.now();
-  document.body.appendChild(script);
-</script>
+  <!-- STARTSEITE -->
+  <main id="selection">
+    <div id="ingredients"></div>
+    <button id="showRecipes">Zeig mir meine Jause</button>
+  </main>
+
+  <!-- REZEPTE -->
+  <section id="recipes" class="hidden"></section>
+
+  <!-- DETAIL -->
+  <section id="recipeDetail" class="hidden"></section>
+
+  <script src="app.js"></script>
 </body>
 </html>
