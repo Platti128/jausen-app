@@ -9,6 +9,14 @@ document.addEventListener("DOMContentLoaded", () => {
     "Erdäpfel",
     "Kichererbsen"
   ];
+let recipes = [];
+
+fetch("recipes.json")
+  .then(res => res.json())
+  .then(data => {
+    recipes = data;
+  })
+  .catch(err => console.error("Rezepte konnten nicht geladen werden", err));
 
   const container = document.getElementById("ingredients");
   let selected = JSON.parse(localStorage.getItem("selectedIngredients")) || [];

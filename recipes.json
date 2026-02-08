@@ -1,30 +1,165 @@
 [
   {
-    "id": "eierbrot",
-    "name": "Eierbrot – der Klassiker",
-    "ingredients": ["Ei"],
+    "id": "eiaufstrich_senf",
+    "name": "Deftiger Eiaufstrich",
+    "ingredients": ["Ei", "Philadelphia", "Senf"],
     "time": 5,
-    "satiety": 3
+    "image": "https://images.unsplash.com/photo-1551218808-94e220e084d2",
+    "amounts": {
+      "Ei": "2 Stk",
+      "Philadelphia": "2 EL",
+      "Senf": "1 TL"
+    },
+    "steps": [
+      "Eier hart kochen und schaelen",
+      "Eier fein hacken",
+      "Mit Philadelphia und Senf verruehren",
+      "Salz und Pfeffer abschmecken"
+    ]
   },
   {
-    "id": "topfenbrot",
-    "name": "Topfen-Kraftbrot",
-    "ingredients": ["Topfen"],
-    "time": 2,
-    "satiety": 3
+    "id": "ei_schnittlauch_butter",
+    "name": "Ei-Schnittlauch-Butterbrot",
+    "ingredients": ["Ei", "Butter", "Schnittlauch"],
+    "time": 5,
+    "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8",
+    "amounts": {
+      "Ei": "1-2 Stk",
+      "Butter": "nach Geschmack",
+      "Schnittlauch": "1 EL"
+    },
+    "steps": [
+      "Brot mit Butter bestreichen",
+      "Ei in Scheiben schneiden",
+      "Mit Schnittlauch bestreuen"
+    ]
   },
   {
-    "id": "huettenkaese",
-    "name": "Hüttenkäse pur",
-    "ingredients": ["Hüttenkäse"],
+    "id": "kaese_gurke",
+    "name": "Kaesebrot mit Gurke",
+    "ingredients": ["Kaese", "Gurke"],
     "time": 2,
-    "satiety": 2
+    "image": "https://images.unsplash.com/photo-1544025162-d76694265947",
+    "amounts": {
+      "Kaese": "2 Scheiben",
+      "Gurke": "1/2 Stueck"
+    },
+    "steps": [
+      "Brot mit Kaese belegen",
+      "Gurke in Scheiben schneiden",
+      "Auflegen und wuerzen"
+    ]
   },
   {
-    "id": "kaesebrot",
-    "name": "Käsebrot",
-    "ingredients": ["Käse"],
-    "time": 2,
-    "satiety": 3
+    "id": "erdapfel_kren",
+    "name": "Erdaepfel-Kren-Aufstrich",
+    "ingredients": ["Erdaepfel", "Kren", "Sauerrahm"],
+    "time": 10,
+    "image": "https://images.unsplash.com/photo-1604908177522-4293c91e3c52",
+    "amounts": {
+      "Erdaepfel": "2 Stk gekocht",
+      "Kren": "1 TL",
+      "Sauerrahm": "2 EL"
+    },
+    "steps": [
+      "Erdaepfel zerdruecken",
+      "Kren und Sauerrahm einruehren",
+      "Salz nach Geschmack"
+    ]
+  },
+  {
+    "id": "kichererbsen_mild",
+    "name": "Kichererbsen-Aufstrich mild",
+    "ingredients": ["Kichererbsen", "Olivenoel"],
+    "time": 5,
+    "image": "https://images.unsplash.com/photo-1598514982205-fb0d1a46a9b0",
+    "amounts": {
+      "Kichererbsen": "200 g",
+      "Olivenoel": "1-2 EL"
+    },
+    "steps": [
+      "Kichererbsen zerdruecken",
+      "Olivenoel unterruehren",
+      "Salz nach Geschmack"
+    ]
+  },
+  {
+    "id": "butter_schnittlauch",
+    "name": "Butterbrot mit Schnittlauch",
+    "ingredients": ["Butter", "Schnittlauch"],
+    "time": 1,
+    "image": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe",
+    "amounts": {
+      "Butter": "nach Geschmack",
+      "Schnittlauch": "1 EL"
+    },
+    "steps": [
+      "Butter aufs Brot streichen",
+      "Schnittlauch darueberstreuen"
+    ]
+  },
+  {
+    "id": "bohnen_zwiebel",
+    "name": "Brot mit Bohnen und Zwiebel",
+    "ingredients": ["Bohnen", "Zwiebel"],
+    "time": 5,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+    "amounts": {
+      "Bohnen": "150 g",
+      "Zwiebel": "1/2 Stk"
+    },
+    "steps": [
+      "Bohnen zerdruecken",
+      "Zwiebel fein hacken",
+      "Alles vermengen und wuerzen"
+    ]
+  },
+  {
+    "id": "linsen_oel",
+    "name": "Linsenbrot mit Oel",
+    "ingredients": ["Linsen", "Olivenoel"],
+    "time": 5,
+    "image": "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0",
+    "amounts": {
+      "Linsen": "150 g",
+      "Olivenoel": "1 EL"
+    },
+    "steps": [
+      "Linsen zerdruecken",
+      "Oel unterruehren",
+      "Salz und Pfeffer"
+    ]
+  },
+  {
+    "id": "kichererbsen_oel",
+    "name": "Kichererbsen mit Olivenoel",
+    "ingredients": ["Kichererbsen", "Olivenoel"],
+    "time": 3,
+    "image": "https://images.unsplash.com/photo-1585238342028-4bbc3e6f9b4b",
+    "amounts": {
+      "Kichererbsen": "200 g",
+      "Olivenoel": "1 EL"
+    },
+    "steps": [
+      "Kichererbsen zerdruecken",
+      "Olivenoel einruehren",
+      "Salz nach Geschmack"
+    ]
+  },
+  {
+    "id": "erdapfel_bohnen",
+    "name": "Erdaepfel-Bohnen-Brot",
+    "ingredients": ["Erdaepfel", "Bohnen"],
+    "time": 10,
+    "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+    "amounts": {
+      "Erdaepfel": "2 Stk",
+      "Bohnen": "100 g"
+    },
+    "steps": [
+      "Erdaepfel zerdruecken",
+      "Bohnen unterheben",
+      "Wuerzen und aufs Brot streichen"
+    ]
   }
 ]
