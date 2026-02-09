@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+alert("NEUE VERSION GELADEN");
 
   // ===== ZUTATEN =====
   const ingredients = [
