@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Kren"
   ];
 
-  let selected = [];
+  let selected = JSON.parse(localStorage.getItem("selectedIngredients")) || [];
   let recipes = [];
   let showClicked = false;
 
@@ -27,19 +27,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultsContainer = document.getElementById("results");
   const showBtn = document.getElementById("showRecipes");
 
-  // ===== REZEPTE LADEN =====
+  // ===== REZEPTE LADEN (cache-sicher) =====
   fetch("recipes.json?v=" + Date.now())
-    .then(r => r.json())
+    .then(res => res.json())
     .then(data => {
       recipes = data;
       if (showClicked) showRecipes();
     })
     .catch(err => {
-      resultsContainer.innerHTML = "<p>FEHLER: recipes.json nicht geladen</p>";
+      resultsContainer.innerHTML =
+        "<p>Fehler: Rezepte konnten nicht geladen werden.</p>";
       console.error(err);
     });
 
-  // ===== ZUTATEN =====
+  // ===== ZUTATEN RENDERN =====
   function renderIngredients() {
     ingredientsContainer.innerHTML = "";
 
@@ -48,52 +49,83 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.textContent = name;
       btn.className =
         "ingredient-btn" + (selected.includes(name) ? " active" : "");
+
       btn.onclick = () => toggleIngredient(name);
+
       ingredientsContainer.appendChild(btn);
     });
   }
 
   function toggleIngredient(name) {
-    selected = selected.includes(name)
-      ? selected.filter(i => i !== name)
-      : [...selected, name];
+    if (selected.includes(name)) {
+      selected = selected.filter(i => i !== name);
+    } else {
+      selected.push(name);
+    }
+
+    localStorage.setItem(
+      "selectedIngredients",
+      JSON.stringify(selected)
+    );
 
     renderIngredients();
+
+    // Falls Rezepte schon angezeigt werden → live neu sortieren
+    if (showClicked) showRecipes();
   }
 
-  // ===== REZEPTE =====
+  // ===== REZEPTE ANZEIGEN (PRIORISIERT, NICHT GEFILTERT) =====
   function showRecipes() {
-    resultsContainer.innerHTML = "<h2>Das geht heute</h2>";
+    resultsContainer.innerHTML = "<h2>Rezepte</h2>";
 
     if (recipes.length === 0) {
       resultsContainer.innerHTML += "<p>Rezepte werden geladen …</p>";
       return;
     }
 
-    let found = false;
+    const scored = recipes.map(recipe => {
+      const missing = recipe.ingredients.filter(
+        i => !selected.includes(i)
+      );
 
-    recipes.forEach(recipe => {
-      if (
-        recipe.ingredients.every(i => selected.includes(i)) &&
-        recipe.ingredients.length >= selected.length
-      ) {
-        found = true;
-        const div = document.createElement("div");
-        div.className = "recipe-card";
-        div.textContent = recipe.name;
-        resultsContainer.appendChild(div);
-      }
+      return {
+        recipe,
+        missing,
+        score: missing.length
+      };
     });
 
-    if (!found) {
-      resultsContainer.innerHTML += "<p>Kein passendes Rezept</p>";
-    }
+    // Weniger fehlende Zutaten = weiter oben
+    scored.sort((a, b) => a.score - b.score);
+
+    scored.forEach(item => {
+      renderRecipeCard(item.recipe, item.missing);
+    });
   }
 
+  // ===== REZEPT-KARTE =====
+  function renderRecipeCard(recipe, missing) {
+    const card = document.createElement("div");
+    card.className = "recipe-card";
+
+    let status = "✅ passt gut";
+    if (missing.length === 1) status = "🟡 fehlt 1 Zutat";
+    if (missing.length > 1) status = `⚪ fehlt ${missing.length} Zutaten`;
+
+    card.innerHTML = `
+      <strong>${recipe.name}</strong><br>
+      <small>${status}</small>
+    `;
+
+    resultsContainer.appendChild(card);
+  }
+
+  // ===== BUTTON =====
   showBtn.onclick = () => {
     showClicked = true;
     showRecipes();
   };
 
+  // ===== START =====
   renderIngredients();
 });
