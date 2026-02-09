@@ -105,20 +105,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== REZEPT-KARTE =====
   function renderRecipeCard(recipe, missing) {
-    const card = document.createElement("div");
-    card.className = "recipe-card";
+  const card = document.createElement("div");
+  card.className = "recipe-card";
 
-    let status = "✅ passt gut";
-    if (missing.length === 1) status = "🟡 fehlt 1 Zutat";
-    if (missing.length > 1) status = `⚪ fehlt ${missing.length} Zutaten`;
+  let status = "Passt gut";
+  let badge = "green";
 
-    card.innerHTML = `
-      <strong>${recipe.name}</strong><br>
-      <small>${status}</small>
-    `;
-
-    resultsContainer.appendChild(card);
+  if (missing.length === 1) {
+    status = "1 Zutat fehlt";
+    badge = "yellow";
   }
+  if (missing.length > 1) {
+    status = `${missing.length} Zutaten fehlen`;
+    badge = "gray";
+  }
+
+  card.innerHTML = `
+    <div class="recipe-image">
+      <img src="${recipe.image}" alt="${recipe.name}">
+      <span class="badge ${badge}">${status}</span>
+    </div>
+
+    <div class="recipe-info">
+      <strong>${recipe.name}</strong>
+      <div class="meta">⏱ ${recipe.time} min</div>
+    </div>
+  `;
+
+  resultsContainer.appendChild(card);
+}
+
 
   // ===== BUTTON =====
   showBtn.onclick = () => {

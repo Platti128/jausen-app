@@ -61,3 +61,60 @@ button {
 .recipe-card small {
   opacity: 0.7;
 }
+.recipe-card {
+  background: #262626;
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 14px 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.recipe-image {
+  position: relative;
+}
+
+.recipe-image img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.recipe-info {
+  padding: 12px 14px 14px;
+}
+
+.recipe-info strong {
+  font-size: 1.05rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.recipe-info .meta {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* Status Badge */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge.green {
+  background: #2e7d32;
+}
+
+.badge.yellow {
+  background: #f9a825;
+  color: #000;
+}
+
+.badge.gray {
+  background: #555;
+}
