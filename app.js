@@ -80,10 +80,56 @@ recipes.forEach(r => {
       <small>⏱ ${r.time} min</small>
     </div>
   `;
+card.onclick = () => openRecipeDetail(r);
+
 
   resultsContainer.appendChild(card);
 });
   };
 
   renderIngredients();
+  function openRecipeDetail(recipe) {
+  const overlay = document.createElement("div");
+  overlay.className = "recipe-detail";
+
+  const ingredients = recipe.ingredients
+    .map(i => {
+      const amount = recipe.amounts && recipe.amounts[i]
+        ? ` – ${recipe.amounts[i]}`
+        : "";
+      return `<li>${i}${amount}</li>`;
+    })
+    .join("");
+
+  const steps = recipe.steps
+    ? recipe.steps.map(s => `<li>${s}</li>`).join("")
+    : "<li>Keine Anleitung vorhanden</li>";
+
+  overlay.innerHTML = `
+    <div class="detail-card">
+      <button class="close-btn">✕</button>
+
+      <img src="${recipe.image}" alt="${recipe.name}">
+
+      <div class="detail-content">
+        <h2>${recipe.name}</h2>
+        <p class="detail-time">⏱ ${recipe.time} min</p>
+
+        <h3>Zutaten</h3>
+        <ul>${ingredients}</ul>
+
+        <h3>Zubereitung</h3>
+        <ol>${steps}</ol>
+      </div>
+    </div>
+  `;
+
+  overlay.querySelector(".close-btn").onclick = () => overlay.remove();
+  overlay.onclick = e => {
+    if (e.target === overlay) overlay.remove();
+  };
+
+  document.body.appendChild(overlay);
+}
+
 });
