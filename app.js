@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== REZEPTE LADEN =====
   let recipes = [];
 
-  fetch("recipes.json")
+  fetch("recipes.json3")
     .then(response => response.json())
     .then(data => {
       recipes = data;
