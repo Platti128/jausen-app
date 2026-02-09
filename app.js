@@ -131,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="meta">⏱ ${recipe.time} min</div>
     </div>
   `;
+card.onclick = () => openRecipeDetail(recipe);
 
   resultsContainer.appendChild(card);
 }
@@ -144,4 +145,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== START =====
   renderIngredients();
+
+  function openRecipeDetail(recipe) {
+  const overlay = document.createElement("div");
+  overlay.className = "recipe-detail";
+
+  const ingredientsList = recipe.ingredients.map(i => {
+    const amount = recipe.amounts?.[i] || "";
+    return `<li>${i} ${amount}</li>`;
+  }).join("");
+
+  const stepsList = recipe.steps
+    ? recipe.steps.map(s => `<li>${s}</li>`).join("")
+    : "<li>Keine Anleitung vorhanden</li>";
+
+  overlay.innerHTML = `
+    <div class="detail-content">
+      <div class="detail-image">
+        <img src="${recipe.image}" alt="${recipe.name}">
+        <button class="close-btn">✕</button>
+      </div>
+
+      <div class="detail-body">
+        <h2>${recipe.name}</h2>
+        <p class="detail-time">⏱ ${recipe.time} min</p>
+
+        <h3>Zutaten</h3>
+        <ul>${ingredientsList}</ul>
+
+        <h3>Zubereitung</h3>
+        <ol>${stepsList}</ol>
+      </div>
+    </div>
+  `;
+
+  overlay.querySelector(".close-btn").onclick = () => overlay.remove();
+  overlay.onclick = e => {
+    if (e.target === overlay) overlay.remove();
+  };
+
+  document.body.appendChild(overlay);
+}
+
 });
