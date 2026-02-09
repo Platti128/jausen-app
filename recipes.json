@@ -55,7 +55,7 @@
     "name": "Erdaepfel-Kren-Aufstrich",
     "ingredients": ["Erdaepfel", "Kren", "Sauerrahm"],
     "time": 10,
-    "image": "https://images.unsplash.com/photo-1604908177522-4293c91e3c52",
+    "image": "https://images.unsplash.com/photo-1604908177522-3c91e3c52",
     "amounts": {
       "Erdaepfel": "2 Stk gekocht",
       "Kren": "1 TL",
@@ -72,7 +72,7 @@
     "name": "Kichererbsen-Aufstrich mild",
     "ingredients": ["Kichererbsen", "Olivenoel"],
     "time": 5,
-    "image": "https://images.unsplash.com/photo-1598514982205-fb0d1a46a9b0",
+    "image": "https://images.unsplash.com/photo-1598514982205-e6e99c36",
     "amounts": {
       "Kichererbsen": "200 g",
       "Olivenoel": "1-2 EL"
