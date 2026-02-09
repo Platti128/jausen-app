@@ -180,3 +180,54 @@ body.no-scroll {
   overflow: hidden;
   height: 100vh;
 }
+/* Hintergrund weichzeichnen */
+body.modal-open #app {
+  filter: blur(6px) brightness(0.7);
+  transform: scale(0.96);
+  transition: all 0.3s ease;
+}
+
+/* Overlay */
+.recipe-detail {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Karte */
+.detail-content {
+  background: #1f1f1f;
+  width: 92%;
+  max-width: 420px;
+  max-height: 90vh;
+  border-radius: 22px;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* Bild */
+.detail-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 18px;
+}

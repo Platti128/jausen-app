@@ -133,6 +133,9 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
 card.onclick = () => openRecipeDetail(recipe);
 
+document.body.classList.add("modal-open");
+
+
   resultsContainer.appendChild(card);
 }
 
@@ -182,11 +185,18 @@ function openRecipeDetail(recipe) {
     </div>
   `;
 
-  // ❌ schließen (Button)
   overlay.querySelector(".close-btn").onclick = () => {
-    document.body.classList.remove("no-scroll");
+  document.body.classList.remove("modal-open");
+  overlay.remove();
+};
+
+overlay.onclick = e => {
+  if (e.target === overlay) {
+    document.body.classList.remove("modal-open");
     overlay.remove();
-  };
+  }
+};
+
 
   // ❌ schließen (Hintergrund)
   overlay.onclick = e => {
