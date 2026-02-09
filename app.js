@@ -66,11 +66,23 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    recipes.forEach(r => {
-      const div = document.createElement("div");
-      div.textContent = r.name;
-      resultsContainer.appendChild(div);
-    });
+recipes.forEach(r => {
+  const card = document.createElement("div");
+  card.className = "recipe-card";
+
+  card.innerHTML = `
+    <div class="recipe-image">
+      <img src="${r.image}" alt="${r.name}">
+      <span class="badge">Rezept</span>
+    </div>
+    <div class="recipe-info">
+      <strong>${r.name}</strong>
+      <small>⏱ ${r.time} min</small>
+    </div>
+  `;
+
+  resultsContainer.appendChild(card);
+});
   };
 
   renderIngredients();
