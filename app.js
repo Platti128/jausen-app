@@ -26,14 +26,20 @@ alert("NEUE VERSION GELADEN");
   // ===== REZEPTE LADEN =====
   let recipes = [];
 
-  fetch("recipes.json3")
-    .then(response => response.json())
-    .then(data => {
-      recipes = data;
-    })
-    .catch(error => {
-      console.error("Fehler beim Laden der Rezepte:", error);
-    });
+ fetch("recipes.json?v=" + Date.now())
+  .then(res => res.json())
+  .then(data => {
+    recipes = data;
+
+    // 🔁 Falls Button schon gedrückt wurde → jetzt anzeigen
+    if (showClicked) {
+      showRecipes();
+    }
+  })
+  .catch(err => {
+    console.error("Rezepte konnten nicht geladen werden", err);
+  });
+
 
   // ===== ZUTATEN RENDERN =====
   const ingredientsContainer = document.getElementById("ingredients");
@@ -71,37 +77,44 @@ alert("NEUE VERSION GELADEN");
   }
 
   // ===== BUTTON: ZEIG MIR MEINE JAUSE =====
-  showBtn.onclick = () => {
-    resultsContainer.innerHTML = "<h2>Das geht heute</h2>";
+ showBtn.onclick = () => {
+  showClicked = true;
+  showRecipes();
+};
+function showRecipes() {
+  resultsContainer.innerHTML = "<h2>Das geht heute</h2>";
 
-    if (recipes.length === 0) {
-      resultsContainer.innerHTML += "<p>Rezepte werden noch geladen …</p>";
-      return;
-    }
+  if (recipes.length === 0) {
+    resultsContainer.innerHTML += "<p>Rezepte werden noch geladen …</p>";
+    return;
+  }
 
-    let found = false;
+  let found = false;
 
-    recipes.forEach(recipe => {
-      const passt =
-        recipe.ingredients.every(i => selected.includes(i)) &&
-        recipe.ingredients.length >= selected.length;
+  recipes.forEach(recipe => {
+    const passt =
+      recipe.ingredients.every(i => selected.includes(i)) &&
+      recipe.ingredients.length >= selected.length;
 
-      if (!passt) return;
+    if (!passt) return;
 
-      found = true;
+    found = true;
 
-      const card = document.createElement("div");
-      card.className = "recipe-card";
-      card.textContent = recipe.name;
+    const card = document.createElement("div");
+    card.className = "recipe-card";
+    card.textContent = recipe.name;
 
-      resultsContainer.appendChild(card);
-    });
+    resultsContainer.appendChild(card);
+  });
 
-    if (!found) {
-      resultsContainer.innerHTML +=
-        "<p>Mit dieser Auswahl passt kein Rezept.</p>";
-    }
-  };
+  if (!found) {
+    resultsContainer.innerHTML +=
+      "<p>Mit dieser Auswahl passt kein Rezept.</p>";
+  }
+}
+
+
+    
 
   // ===== START =====
   renderIngredients();
