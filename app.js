@@ -35,10 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (showClicked) showRecipes();
     })
     .catch(err => {
-      resultsContainer.innerHTML =
-        "<p>Fehler: Rezepte konnten nicht geladen werden.</p>";
-      console.error(err);
-    });
+  resultsContainer.innerHTML =
+    "<p>Fehler: Rezepte konnten nicht geladen werden.</p>";
+  console.error(err);
+});
+
 
   // ===== ZUTATEN RENDERN =====
   function renderIngredients() {
