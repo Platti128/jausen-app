@@ -175,3 +175,8 @@ button {
 .detail-body li {
   margin-bottom: 6px;
 }
+
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}

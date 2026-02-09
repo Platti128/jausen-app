@@ -146,7 +146,10 @@ card.onclick = () => openRecipeDetail(recipe);
   // ===== START =====
   renderIngredients();
 
-  function openRecipeDetail(recipe) {
+function openRecipeDetail(recipe) {
+  // 🔒 Hintergrund-Scroll sperren
+  document.body.classList.add("no-scroll");
+
   const overlay = document.createElement("div");
   overlay.className = "recipe-detail";
 
@@ -179,9 +182,18 @@ card.onclick = () => openRecipeDetail(recipe);
     </div>
   `;
 
-  overlay.querySelector(".close-btn").onclick = () => overlay.remove();
+  // ❌ schließen (Button)
+  overlay.querySelector(".close-btn").onclick = () => {
+    document.body.classList.remove("no-scroll");
+    overlay.remove();
+  };
+
+  // ❌ schließen (Hintergrund)
   overlay.onclick = e => {
-    if (e.target === overlay) overlay.remove();
+    if (e.target === overlay) {
+      document.body.classList.remove("no-scroll");
+      overlay.remove();
+    }
   };
 
   document.body.appendChild(overlay);
